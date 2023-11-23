@@ -1,5 +1,11 @@
+import ProductList from "@/components/containers/ProductList";
+
 import { Container } from "@mui/material";
 
 export default function Home() {
-  return <Container>Home</Container>;
+  return (
+    <Container>
+      <ProductList />
+    </Container>
+  );
 }
