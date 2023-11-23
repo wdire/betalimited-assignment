@@ -1,13 +1,9 @@
 "use client";
 
 import { CssBaseline } from "@mui/material";
-import {
-  ThemeProvider as MuiThemeProvider,
-  createTheme,
-} from "@mui/material/styles";
+import { ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
 import CacheRegistry from "./CacheRegistry";
-
-const theme = createTheme({});
+import theme from "../theme";
 
 function Providers({ children }: React.PropsWithChildren) {
   return (

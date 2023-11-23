@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Providers from "@/utils/providers";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "Beta Limited Assignment",
@@ -14,7 +15,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Header />
+          {children}
+        </Providers>
       </body>
     </html>
   );
