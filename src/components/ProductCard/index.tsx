@@ -1,12 +1,19 @@
 "use client";
 
-import { Product } from "@/types/product";
+import { ProductListItem } from "@/types/product";
 import { formatPrice } from "@/utils/format.util";
-import { Box, Grid, Paper, Rating, Typography, styled } from "@mui/material";
+import {
+  Box,
+  Chip,
+  Grid,
+  Paper,
+  Rating,
+  Typography,
+  styled,
+} from "@mui/material";
 import Image from "next/image";
 import React from "react";
-
-import AddToCartButtons from "./AddToCartButtons";
+import QuantityButtons from "./QuantityButtons";
 
 const ProductContainer = styled(Paper)({
   width: "290px",
@@ -15,28 +22,42 @@ const ProductContainer = styled(Paper)({
 });
 
 const ProductWrapper = styled(Grid)({
+  position: "relative",
   flexDirection: "row",
 });
 
-const ImageWrapper = styled(Grid)({
-  backgroundColor: "#efefef",
+const ImageWrapper = styled(Grid)(({ theme }) => ({
+  backgroundColor: theme.palette.grey[200],
   img: {
     display: "block",
     objectFit: "contain",
     pointerEvents: "none",
   },
-});
+}));
 
-const DetailsWrapper = styled(Grid)({
-  backgroundColor: "#fff",
+const DetailsWrapper = styled(Grid)(({ theme }) => ({
+  backgroundColor: theme.palette.common.white,
   padding: "16px",
   flex: 1,
-});
+  alignItems: "flex-end",
+  minHeight: "124px",
+}));
 
-const ProductCard = ({ product }: { product: Product }) => {
+const ProductCard = ({ product }: { product: ProductListItem }) => {
   return (
     <ProductContainer>
       <ProductWrapper>
+        {product.discount && (
+          <Chip
+            sx={{
+              position: "absolute",
+              top: "10px",
+              left: "10px",
+            }}
+            color="primary"
+            label={product.discount}
+          />
+        )}
         <ImageWrapper>
           <Image
             src={product.image}
@@ -84,7 +105,7 @@ const ProductCard = ({ product }: { product: Product }) => {
             </Box>
           </Grid>
           <Box>
-            <AddToCartButtons productId={1} />
+            <QuantityButtons product={product} />
           </Box>
         </DetailsWrapper>
       </ProductWrapper>

@@ -27,6 +27,7 @@ const LogoWrapperGrid = styled(Grid)(({ theme }) => ({
     objectPosition: "left",
     [theme.breakpoints.down("sm")]: {
       height: "48px",
+      width: "auto",
     },
   },
 }));
@@ -58,6 +59,7 @@ const Header = () => {
                   width={200}
                   height={56}
                   alt="Betalimited Logo"
+                  priority
                 />
               </LogoWrapperGrid>
               <Grid

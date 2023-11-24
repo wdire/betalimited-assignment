@@ -37,7 +37,7 @@ const tmp_products: Product[] = [
 
 const ProductList = () => {
   return (
-    <Grid container gap={2} marginTop={4} justifyContent={"center"}>
+    <Grid container gap={2} marginY={4} justifyContent={"center"}>
       {tmp_products.map((product) => {
         return <ProductCard key={product.id} product={product} />;
       })}

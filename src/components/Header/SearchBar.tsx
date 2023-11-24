@@ -53,12 +53,15 @@ const SearchBar = () => {
         </Box>
         <Button
           variant="contained"
-          sx={{
+          sx={(theme) => ({
             flexShrink: "0",
             width: "130px",
             padding: "0px",
             borderRadius: "0px 30px 30px 0px",
-          }}
+            [theme.breakpoints.down("sm")]: {
+              width: "100px",
+            },
+          })}
         >
           Search
         </Button>

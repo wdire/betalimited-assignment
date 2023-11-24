@@ -7,3 +7,7 @@ export type Product = {
   image: string;
   discount: string;
 };
+
+export type ProductListItem = Product & {
+  quantity?: number;
+};
