@@ -5,6 +5,7 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
+import AppInit from "@/components/AppInit";
 
 export const metadata: Metadata = {
   title: "Beta Limited Assignment",
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body>
         <Providers>
           <Header />
+          <AppInit />
           {children}
         </Providers>
       </body>

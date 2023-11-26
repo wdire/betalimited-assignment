@@ -11,3 +11,7 @@ export const getProductQuantityById =
         ?.quantity || 0
     );
   };
+
+export const getProductsCount = () => (state: RootState) => {
+  return state.cart.products.length;
+};

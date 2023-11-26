@@ -1,6 +1,6 @@
 "use client";
 
-import { ProductListItem } from "@/types/product";
+import { ProductListItem } from "@/types/product.type";
 import { formatPrice } from "@/utils/format.util";
 import {
   Box,

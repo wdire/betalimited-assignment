@@ -22,12 +22,12 @@ const LogoWrapperGrid = styled(Grid)(({ theme }) => ({
   img: {
     display: "block",
     maxWidth: "100%",
+    width: "auto",
     height: "52px",
     objectFit: "contain",
     objectPosition: "left",
     [theme.breakpoints.down("sm")]: {
       height: "48px",
-      width: "auto",
     },
   },
 }));

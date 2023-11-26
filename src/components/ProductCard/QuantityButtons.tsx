@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from "@/store";
+import { cartApi } from "@/store/api";
 import { cartSelectors } from "@/store/selectors";
-import { cartActions } from "@/store/slices/cart.slice";
-import { ProductListItem } from "@/types/product";
+import { ProductListItem } from "@/types/product.type";
 import { Add, Remove } from "@mui/icons-material";
 import { Button, Grid, Typography, styled } from "@mui/material";
 
@@ -24,11 +24,11 @@ const QuantityButtons: React.FC<Props> = ({ product }) => {
   );
 
   const onIncrementClick = () => {
-    dispatch(cartActions.incrementQuantity(product));
+    dispatch(cartApi.addToCart(product.id));
   };
 
   const onDecrementClick = () => {
-    dispatch(cartActions.decrementQuantity(product));
+    dispatch(cartApi.subtractFromCart(product.id));
   };
 
   return (

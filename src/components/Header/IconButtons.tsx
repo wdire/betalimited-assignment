@@ -1,5 +1,7 @@
 "use client";
 
+import { useAppSelector } from "@/store";
+import { getProductsCount } from "@/store/selectors/cart.selector";
 import { Person2Outlined, ShoppingBagOutlined } from "@mui/icons-material";
 import { Avatar, Badge, Grid, styled } from "@mui/material";
 import React from "react";
@@ -23,6 +25,8 @@ export const IconStyled = styled("div")(({ theme }) => ({
 }));
 
 const IconButtons = () => {
+  const cartProductsCount = useAppSelector(getProductsCount());
+
   return (
     <Grid
       container
@@ -34,7 +38,7 @@ const IconButtons = () => {
       <AvatarStyled>
         <IconStyled as={Person2Outlined} />
       </AvatarStyled>
-      <Badge badgeContent={5} color="primary">
+      <Badge badgeContent={cartProductsCount} color="primary">
         <AvatarStyled>
           <IconStyled as={ShoppingBagOutlined} />
         </AvatarStyled>
