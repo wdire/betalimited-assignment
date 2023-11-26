@@ -1,8 +1,24 @@
+import { useAppDispatch } from "@/store";
+import { productApi } from "@/store/api";
+import { productActions } from "@/store/slices/product.slice";
 import { Search } from "@mui/icons-material";
 import { Box, Button, InputBase } from "@mui/material";
-import React from "react";
+import React, { useRef } from "react";
 
 const SearchBar = () => {
+  const dispatch = useAppDispatch();
+  const inputRef = useRef<HTMLInputElement>();
+
+  const handleFormSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    dispatch(productActions.setSearchValue(inputRef.current?.value || ""));
+    dispatch(
+      productApi.searchProduct({
+        searchQuery: inputRef.current?.value || "",
+      })
+    );
+  };
+
   return (
     <Box
       sx={{
@@ -15,10 +31,11 @@ const SearchBar = () => {
       <Box
         sx={{
           display: "flex",
-
           width: "100%",
           height: "45px",
         }}
+        component={"form"}
+        onSubmit={handleFormSubmit}
       >
         <Box
           sx={{
@@ -48,6 +65,7 @@ const SearchBar = () => {
                 height: "100%",
               },
             }}
+            inputRef={inputRef}
             placeholder="Searching for..."
           />
         </Box>
@@ -62,6 +80,7 @@ const SearchBar = () => {
               width: "100px",
             },
           })}
+          type="submit"
         >
           Search
         </Button>
