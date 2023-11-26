@@ -42,13 +42,21 @@ const QuantityButtons: React.FC<Props> = ({ product }) => {
     >
       {quantity > 0 && (
         <>
-          <ButtonStyled color="primary" onClick={onDecrementClick}>
+          <ButtonStyled
+            color="primary"
+            onClick={onDecrementClick}
+            aria-label="Decrement Quantity"
+          >
             <Remove fontSize="small" />
           </ButtonStyled>
           <Typography fontWeight={500}>{quantity}</Typography>
         </>
       )}
-      <ButtonStyled color="primary" onClick={onIncrementClick}>
+      <ButtonStyled
+        color="primary"
+        onClick={onIncrementClick}
+        aria-label="Increment Quantity"
+      >
         <Add fontSize="small" />
       </ButtonStyled>
     </Grid>

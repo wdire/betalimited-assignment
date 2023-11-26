@@ -14,6 +14,7 @@ import {
 import Image from "next/image";
 import React from "react";
 import QuantityButtons from "./QuantityButtons";
+import { grey } from "@mui/material/colors";
 
 const ProductContainer = styled(Paper)({
   width: "290px",
@@ -80,7 +81,10 @@ const ProductCard = ({ product }: { product: ProductListItem }) => {
                 readOnly
                 size="small"
               />
-              <Typography color={"gray"} variant="body2">
+              <Typography
+                sx={(theme) => ({ color: theme.palette.grey[700] })}
+                variant="body2"
+              >
                 {`(${product.rating})`}
               </Typography>
             </Grid>
@@ -96,9 +100,12 @@ const ProductCard = ({ product }: { product: ProductListItem }) => {
               </Typography>
               <Typography
                 component={"span"}
-                color={"gray"}
                 variant="body2"
-                sx={{ textDecoration: "line-through" }}
+                color={grey[700]}
+                sx={(theme) => ({
+                  color: theme.palette.grey[700],
+                  textDecoration: "line-through",
+                })}
               >
                 {formatPrice(product.originalPrice)}
               </Typography>
